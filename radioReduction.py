@@ -3,12 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-def binning(data,sec=5):
+def binning(data,sec=5,binning=5):
     '''
     Creates a binned light curves
     '''
     # Creates binning time in intervals of 5 seconds
-    bins = sec/5
+    bins = sec/binning
 
     # creates a "seconds" column
     data['secs'] = data['dtmin']*60
@@ -29,6 +29,6 @@ def meanData(data):
     '''
     mean_mjd = np.mean(data['mjd'])
     mean_flux = np.mean(data['re'])
-    mean_err = np.sqrt(np.sum(data['ure']**2))/len(data)
+    mean_err = np.sqrt(np.sum(data['ure']**2)/len(data))
     
     return mean_mjd,mean_flux,mean_err
