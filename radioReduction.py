@@ -29,6 +29,6 @@ def meanData(data):
     '''
     mean_mjd = np.mean(data['mjd'])
     mean_flux = np.mean(data['re'])
-    mean_err = np.sqrt(np.sum(data['ure']**2)/len(data))
+    mean_err = np.sqrt(np.sum(data['ure']**2))/len(data)
     
     return mean_mjd,mean_flux,mean_err
